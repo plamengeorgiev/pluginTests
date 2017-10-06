@@ -1,0 +1,87 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+	<title>IIS Windows</title>
+	<style type="text/css">
+		<!-- body {
+			color: #000000;
+			background-color: #0072C6;
+			margin: auto;
+		}
+
+		.container {
+			margin: 0 auto;
+			max-width: 1000px !important;
+			width: 1000px !important;
+		}
+
+		a img {
+			border: none;
+		}
+
+		-->
+	</style>
+	<link href="overlay.css" rel="stylesheet" />
+	<link href="endscreen.css" rel="stylesheet" />
+	<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" />
+
+</head>
+
+<body>
+	<div class="container">
+		<div class="row">
+			<div class="col-md-6">
+				<video id="bumperTest" data-video-id="5515925521001" data-account="55864912001" data-player="default" data-embed="default"
+				 data-application-id class="video-js" width="700" height="500" controls></video>
+			</div>
+		</div>
+	</div>
+
+	<script src="//vjs.zencdn.net/ie8/1.1.1/videojs-ie8.min.js"></script>
+	<script src="//players.brightcove.net/55864912001/default_default/index.min.js"></script>
+	<script src="overlay.js"></script>
+	<script src="endscreen.js"></script>
+	<script src="bumpers.js"></script>
+	<script id="pageScript" type="text/javascript">
+		(function (window, videojs) {
+			var bumperTestPlayer = window.player = videojs("bumperTest");
+			bumperTestPlayer.on("ready", function () {
+				var _this = this;
+				_this.bumpers({
+                    bumpers: [
+         //               {
+         //                   type: 'start',
+         //                   videos: ["5515925521001"],
+						   // videoId: 5560847673001
+					    //},
+					    {
+                            type: 'end',
+                            videos: ["5515925521001"],
+						    videoId: 5560847673001
+                        }
+                    ]				
+				});
+
+				//_this.overlay({
+				//	overlays: [{
+				//		showBackground: false,
+				//		attachToControlBar: true,
+				//		content: "<a href='http://www.hopkinsmedicine.org/' target='_blank'><img src='HopkinsCME_logo_lrg.png' alt='Johns Hopkins Medicine'></img></a>",
+				//		start: 2,
+				//		align: 'bottom-right'
+				//	}]
+				//});
+
+				//_this.customEndscreen({
+				//	"enabled": "false",
+				//	"content": "<section class='endcapCallToActionContent'><a href='http://www.hopkinsmedicine.org/' target='_blank'><div style='width: 100%'><a href='http://www.hopkinsmedicine.org/' target='_blank'><img src='http://players.brightcove.net/55864912001/rkWRGhqd8b/201708251127203310_67e.png' alt='Johns Hopkins Medicine' style='width: 50%;'></img><p>The contents of this video/website are for informational purposes only. Nothing contained in this video/website is intended to be a substitute for medical advice, diagnosis or treatment. Always consult your health care provider if you have any health care related concerns or questions.</p></div></a></section><footer><p>&#169; Johns Hopkins</p></footer>"
+				//});
+			});
+
+		}(window, window.videojs));
+	</script>
+</body>
+
+</html>
