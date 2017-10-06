@@ -1,7 +1,7 @@
 /**
  * Random Bumpers Using a Playlist
  */
-videojs.plugin('randomBumpers', function () {
+videojs.plugin('bumpers', function () {
 
     var myPlayer = this,
         currentBumperIndex = 0,
