@@ -1,0 +1,131 @@
+.video-js {
+  /* Firefox < 16 */
+  /* Safari, Chrome and Opera > 12.1 */
+  /* Internet Explorer */
+  /* Opera < 12.1 */
+  /* Firefox < 16 */
+  /* Safari, Chrome and Opera > 12.1 */
+  /* Internet Explorer */
+  /* Opera < 12.1 */ }
+  .video-js .vjs-overlay {
+    color: #323232;
+    position: absolute;
+    text-align: center; }
+  .video-js .vjs-overlay img {
+    max-width: 100% !important;
+    width: 100% !important; }
+  .video-js .vjs-overlay-no-background {
+    max-width: 25%; }
+  .video-js .vjs-overlay-background {
+    background-color: #fff;
+    background-color: white;
+    width: 25%; }
+  .video-js .vjs-overlay-top-left {
+    top: 10px;
+    left: 10px; }
+  .video-js .vjs-overlay-top {
+    top: 10px;
+    left: 50%;
+    margin-left: -16.5%; }
+  .video-js .vjs-overlay-center {
+    max-width: 100%;
+    width: 100%;
+    height: 100%;
+    left: 0;
+    top: 0;
+    margin-left: 0;
+    margin-top: 0;
+    z-index: 0 !important; }
+  .video-js .vjs-overlay-center img {
+    position: absolute;
+    left: 50%;
+    top: 40%;
+    max-width: 66% !important;
+    width: 66% !important;
+    margin-left: -33%;
+    margin-top: -15px; }
+  .video-js .vjs-overlay-top-right {
+    right: 10px;
+    top: 10px; }
+  .video-js .vjs-overlay-right {
+    margin-top: -15px;
+    right: 10px;
+    top: 50%; }
+  .video-js .vjs-overlay-bottom-right {
+    bottom: 3.5em;
+    right: 10px;
+    margin-bottom: 10px; }
+  .video-js .vjs-overlay-bottom {
+    bottom: 3.5em;
+    left: 50%;
+    margin-bottom: 10px; }
+  .video-js .vjs-overlay-bottom-left {
+    bottom: 3.5em;
+    left: 10px;
+    margin-bottom: 10px; }
+  .video-js .vjs-overlay-left {
+    left: 10px;
+    margin-top: -15px;
+    top: 50%; }
+  .video-js .vjs-control-bar {
+    z-index: 2 !important; }
+
+@keyframes fadein {
+  from {
+    opacity: 0; }
+  to {
+    opacity: 1; } }
+
+@-moz-keyframes fadein {
+  from {
+    opacity: 0; }
+  to {
+    opacity: 1; } }
+
+@-webkit-keyframes fadein {
+  from {
+    opacity: 0; }
+  to {
+    opacity: 1; } }
+
+@-ms-keyframes fadein {
+  .video-js from {
+    opacity: 0; }
+  .video-js to {
+    opacity: 1; } }
+
+@-o-keyframes fadein {
+  from {
+    opacity: 0; }
+  to {
+    opacity: 1; } }
+
+@keyframes fadeout {
+  from {
+    opacity: 1; }
+  to {
+    opacity: 0; } }
+
+@-moz-keyframes fadeout {
+  from {
+    opacity: 1; }
+  to {
+    opacity: 0; } }
+
+@-webkit-keyframes fadeout {
+  from {
+    opacity: 1; }
+  to {
+    opacity: 0; } }
+
+@-ms-keyframes fadeout {
+  .video-js from {
+    opacity: 1; }
+  .video-js to {
+    opacity: 0; } }
+
+@-o-keyframes fadeout {
+  from {
+    opacity: 1; }
+  to {
+    opacity: 0; } }
