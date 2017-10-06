@@ -14,7 +14,7 @@ videojs.plugin('bumpers', function () {
         playBumper = true,
         firstTime = true,
         firstBumper = true,
-        bumperData = ["4446983083001", "4446941103001", "4446983090001", "4447058684001", "4446941108001", "4446983094001"],
+        bumperData = ["5596636430001", "5597735119001", "5593401007001", "5593129603001", "5513172885001"],
         bumperDataLength = bumperData.length;
 
     // listen for the "ended" event and play the next video or bumper
