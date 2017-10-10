@@ -116,7 +116,7 @@
             if(option && option.request && option.request.status == 200) {
                 if(option.request.readyState < 4) {
                     setTimeout(loadVideo, 500, option, autoPlay, ++counter);
-
+					console.log("again");
                     return false;
                 }
             }
