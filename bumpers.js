@@ -7,8 +7,7 @@
     enabled: true
     };
 
-    videojs.plugin('bumpers', function (options) {
-        debugger;
+    videojs.plugin('bumpers', function(options) {
         var _options = videojs.mergeOptions(defaults, options);
 
         if(JSON.parse(_options.enabled) == false || !_options.bumpers || _options.bumpers.length == 0) {
@@ -24,7 +23,7 @@
             poster: '',
         };
 
-        _context.player.on("loadedmetadata", onLoadedMetadata);
+        _context.player.one("loadedmetadata", onLoadedMetadata);
 
 
         // listen for the "play" event and play the first bumper
@@ -33,8 +32,7 @@
         // listen for the "ended" event and play the next video or bumper
         _context.player.on('ended', onEnded);
 
-        function onLoadedMetadata() {
-            debugger;
+        function onLoadedMetadata () {
             _context.bumpers.push({
                 type: 'main',
                 video: _context.player.mediainfo,
@@ -46,16 +44,14 @@
 
         preload();
 
-        function onPlay(e) {
-            debugger;
+        function onPlay (e) {
             if(!_context.startPlayed) {
                 _context.player.hasEnded = false;
 
                 var startOption = getVideoOption('start');
                 _context.player.poster(null);
 
-                if ((startOption || !startOption.playable) && loadVideo(startOption, true, false)) {
-                //if ((startOption || !startOption.playable) && loadVideo(startOption, true, false)) {
+                if (startOption !== null && (startOption || !startOption.playable) && loadVideo(startOption, true, false)) {
                     e.stopImmediatePropagation();
                     _context.player.videoType = 'bumper';
                 } else {
@@ -69,7 +65,7 @@
             }
         }
 
-        function onEnded(e) {
+        function onEnded (e) {
             if(_context.startPlayed && !_context.mainPlayed) {
                 e.stopImmediatePropagation();
 
@@ -84,7 +80,9 @@
                 e.stopImmediatePropagation();
 
                 var endOption = getVideoOption('end');
-
+				if (endOption !== null) {
+                    e.stopImmediatePropagation();
+                }
                 _context.endPlayed = true;
                 
                 if(endOption) {
@@ -97,14 +95,14 @@
                 var mainOption = getVideoOption('main');
 
                 _context.startPlayed = _context.mainPlayed = _context.endPlayed = false;
-
+				_context.player.hasEnded = true;
                 _context.player.poster(_context.poster);
 
                 loadVideo(mainOption, false, false);
             }
         }
 
-        function loadVideo(option, autoPlay, counter) {
+        function loadVideo (option, autoPlay, counter) {
             _context.player.src(null);
 
             if(!counter) {
@@ -137,7 +135,7 @@
 
         function preload() {
             for(var i = 0; i < _context.bumpers.length; i++ ) {
-                if(_context.bumpers[i].videoId) {
+                if(_context.bumpers[i].videoId && _context.player.catalog) {
                     _context.bumpers[i].request = _context.player.catalog.getVideo(_context.bumpers[i].videoId, getVideo);
                     _context.bumpers[i].playable = false;
                 }
@@ -158,17 +156,6 @@
         }
 
         function getVideoOption(type) {
-            //if (_context.player.mediainfo && _context.player.mediainfo.id) {
-            //    var videoId = _context.player.mediainfo.id;
-            //    if (_context.bumpers && _context.bumpers.length > 0) {
-            //        for (var i = 0; i < _context.bumpers.length; i++) {
-            //            var bumper = _context.bumpers[i];
-            //            if (bumper.videos && bumper.videos.indexOf(videoId) === -1) {
-            //                _context.bumpers.splice(i, 1);
-            //            }
-            //        }
-            //    }
-            //}
             var opts = _context.bumpers.filter(function (value) {
                     return value.type === type;
                 });
